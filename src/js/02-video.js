@@ -16,7 +16,6 @@ player.on(
 );
 
 const savedTime = localStorage.getItem('videoplayer-current-time');
-console.log(savedTime);
 
 if (savedTime) {
   try {
