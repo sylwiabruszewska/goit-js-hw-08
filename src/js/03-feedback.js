@@ -32,3 +32,30 @@ loadData();
 // form.addEventListener('input', handleInput);
 emailInput.addEventListener('input', handleInput);
 messageInput.addEventListener('input', handleInput);
+
+// obsługa submit - resetowanie pól formularza, zawartości localStorage, wyprintowanie wartości w konsoli
+const handleSubmit = event => {
+  event.preventDefault();
+  logFormData();
+  resetForm();
+  resetLocalStorage();
+};
+
+const logFormData = () => {
+  const formData = {
+    email: emailInput.value,
+    message: messageInput.value,
+  };
+  console.log('Form data:', formData);
+};
+
+const resetForm = () => {
+  emailInput.value = '';
+  messageInput.value = '';
+};
+
+const resetLocalStorage = () => {
+  localStorage.removeItem(LOCALSTORAGE_KEY);
+};
+
+form.addEventListener('submit', handleSubmit);
